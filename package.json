@@ -1,0 +1,13 @@
+{
+  "name": "acf-yandex-map",
+  "version": "1.0.0",
+  "description": "",
+  "main": "acf-yandex-map.js",
+  "author": "Const Lab",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-uglify": "^1.2.0",
+    "gulp-rename": "^1.2.2"
+  }
+}
