@@ -5,7 +5,10 @@ var gulp = require('gulp'),
     rename = require('gulp-rename');
 
 gulp.task('js', function () {
-    return gulp.src('js/acf-yandex-map.js')
+    return gulp.src([
+        'js/acf-yandex-map.js',
+        'js/yandex-map.js'
+    ])
         .pipe(uglify())
         .pipe(rename({
             suffix: '.min'
