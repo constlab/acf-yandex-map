@@ -229,20 +229,19 @@
             $($input).val(JSON.stringify($params));
         }
 
+        $('.marker-type').on('change', function () {
+            var label = $(this).parent().next('th').children(0);
+            var select = $(this).parent().next('th').next('td').children(0);
+            if (this.value == 'circle') {
+                label.removeClass('hidden');
+                select.removeClass('hidden');
+            } else {
+                label.addClass('hidden');
+                select.addClass('hidden');
+            }
+        });
 
     }
-
-    $('.marker-type').on('change', function () {
-        var label = $(this).parent().next('th').children(0);
-        var select = $(this).parent().next('th').next('td').children(0);
-        if (this.value == 'circle') {
-            label.removeClass('hidden');
-            select.removeClass('hidden');
-        } else {
-            label.addClass('hidden');
-            select.addClass('hidden');
-        }
-    });
 
 
     if (typeof acf.add_action !== 'undefined') {
