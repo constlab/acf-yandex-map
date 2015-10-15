@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Yandex Map Field for Advanced Custom Fields\n"
-"POT-Creation-Date: 2015-10-14 23:14+0300\n"
-"PO-Revision-Date: 2015-10-14 23:16+0300\n"
+"POT-Creation-Date: 2015-10-15 11:43+0300\n"
+"PO-Revision-Date: 2015-10-15 11:44+0300\n"
 "Last-Translator: \n"
 "Language-Team: Const Lab <kalinichenko@constlab.ru>\n"
 "Language: ru\n"
@@ -91,3 +91,11 @@ msgstr "Ошибка инициализации карты. Элемент ка�
 #: ../acf-yandex-map-v5.php:236
 msgid "Drag mark. Right click for remove"
 msgstr "Перетащите метку. Правый клик - удалить."
+
+#: ../acf-yandex-map-v5.php:237
+msgid "Clear all"
+msgstr "Очистить"
+
+#: ../acf-yandex-map-v5.php:238
+msgid "Remove all marks"
+msgstr "Удалить все метки с карты"

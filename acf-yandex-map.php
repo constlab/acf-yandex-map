@@ -3,8 +3,8 @@
 /*
 Plugin Name: Yandex Map Field for Advanced Custom Fields
 Plugin URI: https://github.com/constlab/acf-yandex-map
-Description: SHORT_DESCRIPTION
-Version: 1.0.0
+Description: Editing map on page, add geopoints and circles
+Version: 1.0.1
 Author: Const Lab
 Author URI: https://constlab.ru
 License: GPLv2 or later

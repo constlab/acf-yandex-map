@@ -3,16 +3,10 @@
     /**
      * Initialize admin interface
      *
-     * @param {element} $e
+     * @param {element} $el
      * @returns {boolean}
      */
-    function initialize_field($e) {
-
-        /**
-         * Field element with wrapper
-         * @type {element}
-         */
-        var $el;
+    function initialize_field($el) {
 
         /**
          * Element for map init
@@ -48,7 +42,6 @@
 
         /// Init fields
 
-        $el = $e;
         $element = $($el).find('.map');
         $input = ($el).find('.map-input');
 
@@ -61,13 +54,7 @@
 
         $params = $.parseJSON($($input).val());
 
-        console.log($params);
-
         /// Init map
-
-        var zoom = $input.attr('data-zoom');
-
-        var coords = null;
 
         ymaps.ready(function () {
 
@@ -80,15 +67,11 @@
             });
 
             $map.controls.remove('trafficControl');
+            $map.controls.remove('fullscreenControl');
             $map.copyrights.add('&copy; Const Lab. ');
 
             $map.events.add('click', function (e) {
-                coords = e.get('coords');
-                createMark(coords);
-                /*if(myPlacemark===null) {
-                 createMark( document.getElementById("mapdata-markertype").value );
-                 }
-                 saveCoordinates();*/
+                create_mark(e.get('coords'));
             });
 
             $map.events.add('typechange', function (e) {
@@ -110,6 +93,19 @@
                 width: 250
             });
 
+            search_controll.events.add('resultselect', function () {
+                $map.geoObjects.removeAll();
+                save_map();
+            });
+
+            /// Geo location button
+
+            var geo_control = $map.controls.get('geolocationControl');
+            geo_control.events.add('locationchange', function () {
+                $map.geoObjects.removeAll();
+                save_map();
+            });
+
             /// Zoom Control
 
             var zoom_control = new ymaps.control.ZoomControl();
@@ -119,23 +115,31 @@
 
             $map.controls.add(zoom_control, {top: 75, left: 5});
 
+            /// Clear all button
+
+            var clear_button = new ymaps.control.Button({
+                data: {
+                    content: acf_yandex_locale.btn_clear_all,
+                    title: acf_yandex_locale.btn_clear_all_hint
+                },
+                options: {
+                    selectOnClick: false
+                }
+            });
+
+            clear_button.events.add('click', function () {
+                $map.geoObjects.removeAll();
+                save_map();
+            });
+
+            $map.controls.add(clear_button, {top: 5, right: 5});
+
             /// Marks load
 
             $($params.marks).each(function (index, mark) {
-                createMark(mark.coords, mark.type, mark.circle_size);
+                create_mark(mark.coords, mark.type, mark.circle_size);
             });
 
-        });
-
-        /// Init interface
-
-        $('.marker-type').on('change', function () {
-            var $circles = $($el).find('.circle');
-            if (this.value == 'circle') {
-                $circles.removeClass('hidden');
-            } else {
-                $circles.addClass('hidden');
-            }
         });
 
         /**
@@ -145,7 +149,7 @@
          * @param {string} type Point type, Point or Circle
          * @param {int} size Circle size in meters
          */
-        function createMark(coords, type, size) {
+        function create_mark(coords, type, size) {
 
             var place_mark = null;
             var marker_type = (type != null) ? type.toLowerCase() : $($el).find('.marker-type').val();
@@ -164,13 +168,13 @@
 
             } else { // if mark is circle
 
-                var circle_size = (size != null) ? size : $($el).find('.circle-size').val();
+                var circle_size = (size != null) ? size : (parseInt($($el).find('.circle-size').val()) / 2);
 
                 place_mark = new ymaps.Circle([
                     coords,
-                    circle_size / 2
+                    circle_size
                 ], {
-                    hintContent: 'Перетащите метку. Правый клик - удалить.'
+                    hintContent: acf_yandex_locale.mark_hint
                 }, {
                     draggable: true,
                     opacity: 0.5,
@@ -183,10 +187,14 @@
 
             }
 
-            place_mark.events.add('contextmenu', function (event) {
+            place_mark.events.add('contextmenu', function () {
                 $map.geoObjects.remove(this);
                 save_map();
             }, place_mark);
+
+            place_mark.events.add('dragend', function () {
+                save_map();
+            });
 
             $map.geoObjects.add(place_mark);
 
@@ -223,6 +231,18 @@
 
 
     }
+
+    $('.marker-type').on('change', function () {
+        var label = $(this).parent().next('th').children(0);
+        var select = $(this).parent().next('th').next('td').children(0);
+        if (this.value == 'circle') {
+            label.removeClass('hidden');
+            select.removeClass('hidden');
+        } else {
+            label.addClass('hidden');
+            select.addClass('hidden');
+        }
+    });
 
 
     if (typeof acf.add_action !== 'undefined') {

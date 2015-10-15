@@ -232,8 +232,10 @@ class acf_field_yandex_map extends acf_field {
 		wp_register_script( 'acf-yandex', "{$dir}js/acf-yandex-map.min.js", array( 'yandex-map-api' ), null, true );
 
 		wp_localize_script( 'acf-yandex', 'acf_yandex_locale', array(
-			'map_init_fail' => __( 'Error init Yandex map! Field not found.', YA_MAP_LANG_DOMAIN ),
-			'mark_hint'     => __( 'Drag mark. Right click for remove', YA_MAP_LANG_DOMAIN )
+			'map_init_fail'      => __( 'Error init Yandex map! Field not found.', YA_MAP_LANG_DOMAIN ),
+			'mark_hint'          => __( 'Drag mark. Right click for remove', YA_MAP_LANG_DOMAIN ),
+			'btn_clear_all'      => __( 'Clear all', YA_MAP_LANG_DOMAIN ),
+			'btn_clear_all_hint' => __( 'Remove all marks', YA_MAP_LANG_DOMAIN )
 		) );
 	}
 
