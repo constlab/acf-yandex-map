@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Yandex Map Field for Advanced Custom Fields\n"
-"POT-Creation-Date: 2015-10-15 11:43+0300\n"
-"PO-Revision-Date: 2015-10-15 11:44+0300\n"
+"POT-Creation-Date: 2015-10-16 19:19+0300\n"
+"PO-Revision-Date: 2015-10-16 19:20+0300\n"
 "Last-Translator: \n"
 "Language-Team: Const Lab <kalinichenko@constlab.ru>\n"
 "Language: ru\n"
@@ -99,3 +99,23 @@ msgstr "Очистить"
 #: ../acf-yandex-map-v5.php:238
 msgid "Remove all marks"
 msgstr "Удалить все метки с карты"
+
+#: ../acf-yandex-map-v5.php:239
+msgid "Import map from json"
+msgstr "Импорт карты"
+
+#: ../acf-yandex-map-v5.php:240
+msgid "Import"
+msgstr "Импорт"
+
+#: ../acf-yandex-map-v5.php:241
+msgid "Paste exported json"
+msgstr "Вставьте скопированный текст"
+
+#: ../acf-yandex-map-v5.php:242
+msgid "Export map to json string"
+msgstr "Экспорт карты"
+
+#: ../acf-yandex-map-v5.php:243
+msgid "Copy it"
+msgstr "Скопируйте это в буфер обмена"

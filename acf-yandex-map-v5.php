@@ -235,7 +235,12 @@ class acf_field_yandex_map extends acf_field {
 			'map_init_fail'      => __( 'Error init Yandex map! Field not found.', YA_MAP_LANG_DOMAIN ),
 			'mark_hint'          => __( 'Drag mark. Right click for remove', YA_MAP_LANG_DOMAIN ),
 			'btn_clear_all'      => __( 'Clear all', YA_MAP_LANG_DOMAIN ),
-			'btn_clear_all_hint' => __( 'Remove all marks', YA_MAP_LANG_DOMAIN )
+			'btn_clear_all_hint' => __( 'Remove all marks', YA_MAP_LANG_DOMAIN ),
+			'btn_import'         => __( 'Import map from json', YA_MAP_LANG_DOMAIN ),
+			'import_go'          => __( 'Import', YA_MAP_LANG_DOMAIN ),
+			'import_desc'        => __( 'Paste exported json', YA_MAP_LANG_DOMAIN ),
+			'btn_export'         => __( 'Export map to json string', YA_MAP_LANG_DOMAIN ),
+			'export_desc'        => __( 'Copy it', YA_MAP_LANG_DOMAIN ),
 		) );
 	}
 
@@ -261,7 +266,7 @@ class acf_field_yandex_map extends acf_field {
 			$result = $this->defaults['map_type'];
 		}
 
-		return "yandex#$result";
+		return $result;
 
 	}
 
