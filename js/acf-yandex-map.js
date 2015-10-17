@@ -184,7 +184,7 @@
 
             var import_button = new ymaps.control.Button({
                 data: {
-                    image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAqElEQVQ4T+2SMRLCIBBF/xb03kRvoDcJDVt7A5MbWC8N3kRvoDexp8AJM8mQZBPjaCnlZ/+DeUBQlnPuSkT7ciuldPPeH8bj9AcgO7DWbowx28LHmYh2I4l3AMcuizE+QgjPXiIzBwCVJlXJLiJi23zwCishfXkCaIM3kEFZBSxAJuVZgAJRy4uAAoJOmCZY/corXyKP/QbAzDWA0ycnA2hEpM43+AbwAmsIXBGXgRV+AAAAAElFTkSuQmCC',
+                    image: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTYgMTYiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxwYXRoIGZpbGw9IiM2NjY2NjYiIGQ9Ik0xMi42LDRoLTEuMDIxYy0wLjI3NiwwLTAuNSwwLjIyNC0wLjUsMC41czAuMjI0LDAuNSwwLjUsMC41SDEyLjZDMTMuMzk4LDUsMTQsNS42NDUsMTQsNi41djZjMCwwLjg1NS0wLjYwMiwxLjUtMS40LDEuNWgtMTBDMS43NDgsMTQsMSwxMy4yOTksMSwxMi41di02QzEsNS43MDEsMS43NDgsNSwyLjYsNWgwLjc2OGMwLjI3NiwwLDAuNS0wLjIyNCwwLjUtMC41UzMuNjQ1LDQsMy4zNjgsNEgyLjZDMS4xOTEsNCwwLDUuMTQ1LDAsNi41djZDMCwxMy44NTUsMS4xOTEsMTUsMi42LDE1aDEwYzEuMzQ2LDAsMi40LTEuMDk4LDIuNC0yLjV2LTZDMTUsNS4wOTgsMTMuOTQ1LDQsMTIuNiw0eiIvPjxwYXRoIGZpbGw9IiM2NjY2NjYiIGQ9Ik03LjEzMywxMC4wMzRjMC4xMzcsMC4zMTUsMC41NjgsMC40MTMsMC43MDMsMC4xMDFjMC4wMTItMC4wMjksMS4xNzctMi40MTksMS45MjktMy4zNzNjMC4yNjQtMC4zMzUtMC4wOTUtMC42NC0wLjQ2My0wLjUzQzguOTgsNi4zMjgsNy45NjYsNy4wNTIsNy45NjYsNy4xMDFWMC41NzZjMC0wLjI3Ni0wLjE4OC0wLjU5MS0wLjQ2NS0wLjU5MWMtMC4wMDIsMC0wLjAwMywwLjAwMS0wLjAwNSwwLjAwMXMwLjAwMS0wLjAwMS0wLjAwMS0wLjAwMWMtMC4yNzYsMC0wLjQ5NSwwLjIyNC0wLjQ5NSwwLjVWNy4wMWMwLTAuMDQ5LTEuMDE4LTAuNzc0LTEuMzM5LTAuODY5Yy0wLjM2OC0wLjExLTAuNzE4LDAuMTg3LTAuNDY2LDAuNTNDNS44Nyw3LjU4Nyw2LjY1OSw4Ljk0Myw3LjEzMywxMC4wMzR6Ii8+PC9nPjwvc3ZnPg==',
                     title: acf_yandex_locale.btn_import
                 },
                 options: {
@@ -200,7 +200,7 @@
 
             var export_button = new ymaps.control.Button({
                 data: {
-                    image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAu0lEQVQ4T+3TsQ3CMBQE0H8bsAErZAMYgQUQUNiCGajp6UD+jSUWCRuwAhukdnNRkBKZYFtJj1v7nqX7NqSwrLWeZK2qPncMuY0uLCK7bp/kIYckgTjcX5BDfoBUuIR8AaVwDhmAKeEU8gGMMRWATXRgD2AZF0zyDWCYRgjh6r1vkiUaY2oAqxHwVNX1eGp/QCTXQUVyERcGoFHV16QSSx8sCVhrLyKynRMUkYdz7tw/pBuA4xyA5F1VTy30F30RrR2UBgAAAABJRU5ErkJggg==',
+                    image: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTYgMTYiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxwYXRoIGZpbGw9IiM2NjY2NjYiIGQ9Ik0xMi42LDRoLTEuMDIxYy0wLjI3NiwwLTAuNSwwLjIyNC0wLjUsMC41czAuMjI0LDAuNSwwLjUsMC41SDEyLjZDMTMuMzk4LDUsMTQsNS42NDUsMTQsNi41djZjMCwwLjg1NS0wLjYwMiwxLjUtMS40LDEuNWgtMTBDMS43NDgsMTQsMSwxMy4yOTksMSwxMi41di02QzEsNS43MDEsMS43NDgsNSwyLjYsNWgwLjc2OGMwLjI3NiwwLDAuNS0wLjIyNCwwLjUtMC41UzMuNjQ1LDQsMy4zNjgsNEgyLjZDMS4xOTEsNCwwLDUuMTQ1LDAsNi41djZDMCwxMy44NTUsMS4xOTEsMTUsMi42LDE1aDEwYzEuMzQ2LDAsMi40LTEuMDk4LDIuNC0yLjV2LTZDMTUsNS4wOTgsMTMuOTQ1LDQsMTIuNiw0eiIvPjxwYXRoIGZpbGw9IiM2NjY2NjYiIGQ9Ik03Ljg2OCwwLjIyNWMtMC4xMzctMC4zMTUtMC42MDItMC4zMjItMC43MzctMC4wMUM3LjExOCwwLjI0NCw1Ljk1NCwyLjYzNCw1LjIwMiwzLjU4OGMtMC4yNjQsMC4zMzUsMC4wOTUsMC42NCwwLjQ2MywwLjUzQzUuOTg2LDQuMDIyLDcsMy4yOTgsNywzLjI0OXY2LjUyNmMwLDAuMjc2LDAuMjIzLDAuNSwwLjQ5OSwwLjVjMC4wMDIsMCwwLjAwMy0wLjAwMSwwLjAwNS0wLjAwMXMtMC4wMDEsMC4wMDEsMC4wMDEsMC4wMDFjMC4yNzYsMCwwLjQ5NS0wLjIyNCwwLjQ5NS0wLjVWMy4yNDljMCwwLjA0OSwxLjAxOCwwLjc3NCwxLjMzOSwwLjg2OWMwLjM2OCwwLjExLDAuNzE4LTAuMTg3LDAuNDY2LTAuNTNDOS4xMzEsMi42NzEsOC4zNDEsMS4zMTUsNy44NjgsMC4yMjV6Ii8+PC9nPjwvc3ZnPg==',
                     title: acf_yandex_locale.btn_export
                 },
                 options: {
@@ -273,6 +273,12 @@
                 save_map();
             });
 
+            /*place_mark.events.add('click', function () {
+                if (!this.balloon.isOpen()) {
+                    show_mark_editor(this);
+                }
+            }, place_mark);*/
+
             $map.geoObjects.add(place_mark);
         }
 
@@ -331,6 +337,15 @@
             map_init();
 
             return false;
+        }
+
+        /**
+         * Show mark editor
+         * @param mark
+         */
+        function show_mark_editor(mark) {
+            var html = '<div class="ya-editor" style="margin: 5px"><textarea rows="5" cols="40"></textarea><button class="button button-primary">Save</button>&nbsp;<button class="button">Remove</button></div>';
+            $map.balloon.open(mark.geometry.getCoordinates(), html);
         }
 
         /**
