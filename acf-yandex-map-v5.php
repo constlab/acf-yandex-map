@@ -241,6 +241,8 @@ class acf_field_yandex_map extends acf_field {
 			'import_desc'        => __( 'Paste exported json', YA_MAP_LANG_DOMAIN ),
 			'btn_export'         => __( 'Export map to json string', YA_MAP_LANG_DOMAIN ),
 			'export_desc'        => __( 'Copy it', YA_MAP_LANG_DOMAIN ),
+			'mark_save'          => __( 'Save', YA_MAP_LANG_DOMAIN ),
+			'mark_remove'        => __( 'Remove', YA_MAP_LANG_DOMAIN ),
 		) );
 	}
 

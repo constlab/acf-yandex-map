@@ -27,7 +27,9 @@
 
                     if (mark.type == 'Point') { // create placemark
 
-                        place_mark = new ymaps.Placemark(mark.coords);
+                        place_mark = new ymaps.Placemark(mark.coords, {
+                            balloonContent: mark.content
+                        });
 
                     } else { // if mark is circle
 

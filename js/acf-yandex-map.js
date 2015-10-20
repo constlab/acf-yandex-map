@@ -155,7 +155,7 @@
             /// Marks load
 
             $($params.marks).each(function (index, mark) {
-                create_mark(mark.coords, mark.type, mark.circle_size);
+                create_mark(mark.coords, mark.type, mark.circle_size, mark.id, mark.content);
             });
 
             /// Map balloon
@@ -215,6 +215,45 @@
                 + JSON.stringify($params) + '</textarea></div>');
             });
 
+            /// Mark editor
+
+            $map.events.add('balloonopen', function () {
+                $('.ya-editor textarea').focus();
+
+                $('.ya-editor .remove').click(function (event) {
+                    var mark_id = $(event.currentTarget).parent('form').children('input[type="hidden"]').val();
+                    if (mark_id == undefined) return false;
+
+                    $map.balloon.close();
+                    $map.geoObjects.each(function (mark) {
+                        if (mark.properties.get('id') == mark_id)
+                            $map.geoObjects.remove(mark);
+                    });
+
+                    return false;
+                });
+
+                $('.ya-editor form').submit(function () {
+                    var data = $(this).serializeArray();
+                    var form = {};
+                    $.map(data, function (n, i) {
+                        form[n['name']] = n['value'];
+                    });
+
+                    $map.geoObjects.each(function (mark) {
+                        if (mark.properties.get('id') == form.id) {
+                            mark.properties.set('content', form.content);
+                            save_map();
+                        }
+                    });
+
+                    $map.balloon.close();
+
+                    return false;
+                });
+
+            });
+
             $map.controls.add(export_button, {top: 5, right: 5});
             $map.controls.add(import_button, {top: 5, right: 5});
         }
@@ -225,18 +264,28 @@
          * @param {Array} coords
          * @param {string} type Point type, Point or Circle
          * @param {int} size Circle size in meters
+         * @param {int} id
+         * @param {string} content
          */
-        function create_mark(coords, type, size) {
+        function create_mark(coords, type, size, id, content) {
 
             var place_mark = null;
             var marker_type = (type != null) ? type.toLowerCase() : $($el).find('.marker-type').val();
+
+            var mark_id = id;
+            if (id == undefined && $params.marks.length == 0)
+                mark_id = 1;
+            else
+                mark_id = (id == undefined) ? ($params.marks[$params.marks.length - 1].id + 1) : id;
+
+            var mark_content = (content == undefined) ? '' : content;
 
             if (marker_type == 'point') { // create placemark
 
                 place_mark = new ymaps.Placemark(
                     coords,
                     {
-                        //balloonContent: 'test',
+                        //iconContent: mark_id,
                         hintContent: acf_yandex_locale.mark_hint
                     }, {
                         draggable: true
@@ -273,11 +322,14 @@
                 save_map();
             });
 
-            /*place_mark.events.add('click', function () {
+            place_mark.events.add('click', function () {
                 if (!this.balloon.isOpen()) {
                     show_mark_editor(this);
                 }
-            }, place_mark);*/
+            }, place_mark);
+
+            place_mark.properties.set('id', mark_id);
+            place_mark.properties.set('content', mark_content);
 
             $map.geoObjects.add(place_mark);
         }
@@ -300,6 +352,8 @@
             $map.geoObjects.each(function (mark) {
                 var _type = mark.geometry.getType();
                 marks.push({
+                    id: mark.properties.get('id'),
+                    content: mark.properties.get('content'),
                     type: _type,
                     coords: mark.geometry.getCoordinates(),
                     circle_size: (_type == 'Circle') ? mark.geometry.getRadius() : 0
@@ -344,8 +398,18 @@
          * @param mark
          */
         function show_mark_editor(mark) {
-            var html = '<div class="ya-editor" style="margin: 5px"><textarea rows="5" cols="40"></textarea><button class="button button-primary">Save</button>&nbsp;<button class="button">Remove</button></div>';
+            var html = '<div class="ya-editor" style="margin: 5px"><form name="mark"><input type="hidden" name="id" value="' +
+                mark.properties.get('id') + '"><textarea name="content" rows="5" cols="40">' + mark.properties.get('content') +
+                '</textarea><input type="submit" class="button button-primary" value="' + acf_yandex_locale.mark_save +
+                '"/>&nbsp;<button class="button remove">' + acf_yandex_locale.mark_remove + '</button></form></div>';
+
             $map.balloon.open(mark.geometry.getCoordinates(), html);
+
+            //console.info(mark.properties.get('id'));
+            //console.info(mark.properties.get('content'));
+
+
+            //$('input[name="color"]').wpColorPicker({});
         }
 
         /**
