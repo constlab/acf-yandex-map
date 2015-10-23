@@ -36,7 +36,9 @@
                         place_mark = new ymaps.Circle([
                             mark.coords,
                             mark.circle_size
-                        ], {}, {
+                        ], {
+                            balloonContent: mark.content
+                        }, {
                             opacity: 0.5,
                             fillOpacity: 0.1,
                             fillColor: "#DB709377",
