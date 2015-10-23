@@ -169,12 +169,6 @@ class acf_field_yandex_map extends acf_field {
 		*  This will show what data is available
 		*/
 
-		/*echo '<pre>';
-		print_r( $field );
-		echo '</pre>';*/
-
-		//add_thickbox();
-
 		wp_enqueue_script( 'acf-yandex' );
 
 		$saved = json_decode( $field['value'], true );
