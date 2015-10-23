@@ -4,7 +4,7 @@
 Plugin Name: Yandex Map Field for Advanced Custom Fields
 Plugin URI: https://github.com/constlab/acf-yandex-map
 Description: Editing map on page, add geopoints and circles
-Version: 1.1.0
+Version: 1.2.0
 Author: Const Lab
 Author URI: https://constlab.ru
 License: GPLv2 or later
@@ -12,7 +12,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 defined( 'YA_MAP_LANG_DOMAIN' ) or define( 'YA_MAP_LANG_DOMAIN', 'acf-yandex-map' );
-defined( 'ACF_YA_MAP_VERSION' ) or define( 'ACF_YA_MAP_VERSION', '1.1.0' );
+defined( 'ACF_YA_MAP_VERSION' ) or define( 'ACF_YA_MAP_VERSION', '1.2.0' );
 
 load_plugin_textdomain( YA_MAP_LANG_DOMAIN, false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
 
@@ -34,7 +34,8 @@ if ( ! function_exists( 'the_yandex_map' ) ) {
 	 */
 	function the_yandex_map( $selector, $post_id = false, $data = null ) {
 
-		$value = ( $data !== null ) ? $data : get_field( $selector, $post_id, false );
+		$post_id = acf_get_valid_post_id( $post_id );
+		$value   = ( $data !== null ) ? $data : get_field( $selector, $post_id, false );
 
 		if ( ! $value ) {
 			return;
@@ -54,8 +55,22 @@ if ( ! function_exists( 'the_yandex_map' ) ) {
 			)
 		) );
 
-		echo '<div class="yandex-map" id="' . $map_id . '" style="width:100%;height:300px"></div>';
+		/**
+		 * Filter the map height for frontend.
+		 *
+		 * @since 1.2.0
+		 *
+		 * @param string $selector Field name
+		 * @param int $post_id Current page id
+		 * @param array $value Map field value
+		 */
+		$height_map = apply_filters( 'acf-yandex-map/height', $selector, $post_id, $value );
+		if ( ! $height_map || (int) $height_map <= 0 ) {
+			$field      = get_field_object( $selector, $post_id );
+			$height_map = $field['height'];
+		}
 
+		echo sprintf( '<div class="yandex-map" id="%s" style="width:auto;height:%d\px"></div>', $map_id, $height_map );
 	}
 
 }
