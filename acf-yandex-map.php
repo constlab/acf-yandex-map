@@ -1,7 +1,7 @@
 <?php
 
 /*
-Plugin Name: Yandex Map Field for Advanced Custom Fields
+Plugin Name: Yandex Map Field for ACF
 Plugin URI: https://github.com/constlab/acf-yandex-map
 Description: Editing map on page, add geopoints and circles
 Version: 1.2.0

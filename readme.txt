@@ -1,4 +1,4 @@
-=== Yandex Map for Advanced Custom Fields ===
+=== Yandex Map for ACF ===
 Contributors: joker-bs
 Donate link: http://constlab.ru/
 Tags: yandex-map, yandex, acf
@@ -8,7 +8,7 @@ Stable tag: master
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Yandex Map for Advanced Custom Fields
+Yandex Map for ACF
 
 == Description ==
 
