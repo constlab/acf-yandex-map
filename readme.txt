@@ -1,7 +1,7 @@
 === Yandex Map for ACF ===
 Contributors: joker-bs
 Donate link: http://constlab.ru/
-Tags: yandex-map, yandex, acf
+Tags: map, acf
 Requires at least: 3.0.1
 Tested up to: 4.3.1
 Stable tag: master
