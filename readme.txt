@@ -35,8 +35,11 @@ Major features:
 
 == Changelog ==
 
+= 1.2.1 =
+* Fix acf-yandex-map/height filter, reorder params. Use $field_height, $selector, $post_id, $field_value
+
 = 1.2 =
-* Added filter <code>acf-yandex-map/height</code> to function <code>the_yandex_map</code> for set map height
+* Added filter acf-yandex-map/height to function <code>the_yandex_map</code> for set map height
 * Fixes view on frontend
 * Many fixes
 
