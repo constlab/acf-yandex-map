@@ -4,7 +4,7 @@
 Plugin Name: Yandex Map Field for ACF
 Plugin URI: https://github.com/constlab/acf-yandex-map
 Description: Editing map on page, add geopoints and circles
-Version: 1.2.1
+Version: 1.2.2
 Author: Const Lab
 Author URI: https://constlab.ru
 License: GPLv2 or later
@@ -68,7 +68,7 @@ if ( ! function_exists( 'the_yandex_map' ) ) {
 		$field_height = ( $field ) ? $field['height'] : 200;
 		$height_map   = apply_filters( 'acf-yandex-map/height', $field_height, $selector, $post_id, $value );
 
-		echo sprintf( '<div class="yandex-map" id="%s" style="width:auto;height:%d\px"></div>', $map_id, $height_map );
+		echo sprintf( '<div class="yandex-map" id="%s" style="width:auto;height:%dpx"></div>', $map_id, $height_map );
 	}
 
 }

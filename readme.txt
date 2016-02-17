@@ -3,7 +3,7 @@ Contributors: joker-bs
 Donate link: http://constlab.ru/
 Tags: map, acf
 Requires at least: 3.0.1
-Tested up to: 4.3.1
+Tested up to: 4.4.2
 Stable tag: master
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -34,6 +34,9 @@ Major features:
 == Screenshots ==
 
 == Changelog ==
+
+= 1.2.2 =
+* Fix displaying map in Safari browser
 
 = 1.2.1 =
 * Fix acf-yandex-map/height filter, reorder params. Use $field_height, $selector, $post_id, $field_value
