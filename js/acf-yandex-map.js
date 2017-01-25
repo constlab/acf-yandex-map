@@ -1,5 +1,7 @@
 (function ($) {
 
+    'use strict';
+
     /**
      * Initialize admin interface
      *

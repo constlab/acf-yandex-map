@@ -1,5 +1,7 @@
 (function ($) {
 
+    'use strict';
+
     ymaps.ready(function () {
 
         if (maps !== undefined) {
