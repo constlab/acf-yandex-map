@@ -36,7 +36,7 @@ class acf_field_yandex_map extends acf_field {
 		*  category (string) basic | content | choice | relational | jquery | layout | CUSTOM GROUP NAME
 		*/
 
-		$this->category = 'jquery';
+		$this->category = 'jQuery';
 
 
 		/*
@@ -180,7 +180,6 @@ class acf_field_yandex_map extends acf_field {
 		$data['type']       = $this->get_map_type( $saved['type'], $field );
 		$data['marks']      = ( $saved['marks'] ) ?: array();
 
-		//print_r( $data );
 		?>
 		<input type="hidden" name="<?php echo esc_attr( $field['name'] ) ?>"
 		       value="<?php echo esc_attr( wp_json_encode( $data ) ) ?>"

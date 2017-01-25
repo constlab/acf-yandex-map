@@ -16,11 +16,16 @@ defined( 'ACF_YA_MAP_VERSION' ) or define( 'ACF_YA_MAP_VERSION', '1.2.0' );
 
 load_plugin_textdomain( YA_MAP_LANG_DOMAIN, false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
 
-function include_field_types_yandex_map( $version ) {
-	include_once( __DIR__ . '/acf-yandex-map-v5.php' );
+function include_field_types_yandex_map( $version = false ) {
+	if ( ! $version ) {
+		$version = 4;
+	}
+
+	include_once __DIR__ . '/acf-yandex-map-v' . $version . '.php';
 }
 
 add_action( 'acf/include_field_types', 'include_field_types_yandex_map' );
+add_action( 'acf/register_fields', 'include_field_types_yandex_map' );
 
 
 /// Function for frontend
@@ -34,8 +39,9 @@ if ( ! function_exists( 'the_yandex_map' ) ) {
 	 */
 	function the_yandex_map( $selector, $post_id = false, $data = null ) {
 
-		$post_id = acf_get_valid_post_id( $post_id );
-		$value   = ( $data !== null ) ? $data : get_field( $selector, $post_id, false );
+		$post_id = function_exists( 'acf_get_valid_post_id' ) ? acf_get_valid_post_id( $post_id ) : (int) $post_id;
+
+		$value = ( $data !== null ) ? $data : get_field( $selector, $post_id, false );
 
 		if ( ! $value ) {
 			return;
@@ -65,7 +71,7 @@ if ( ! function_exists( 'the_yandex_map' ) ) {
 		 * @param array $value Map field value
 		 */
 		$field        = get_field_object( $selector, $post_id );
-		$field_height = ( $field ) ? $field['height'] : 200;
+		$field_height = $field ? $field['height'] : 200;
 		$height_map   = apply_filters( 'acf-yandex-map/height', $field_height, $selector, $post_id, $value );
 
 		echo sprintf( '<div class="yandex-map" id="%s" style="width:auto;height:%dpx"></div>', $map_id, $height_map );
