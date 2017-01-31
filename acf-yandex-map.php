@@ -4,7 +4,7 @@
 Plugin Name: Yandex Map Field for ACF
 Plugin URI: https://github.com/constlab/acf-yandex-map
 Description: Editing map on page, add geopoints and circles
-Version: 1.2.3
+Version: 1.2.4
 Author: Const Lab
 Author URI: https://constlab.ru
 License: GPLv2 or later
@@ -39,7 +39,7 @@ if ( ! function_exists( 'the_yandex_map' ) ) {
 	 */
 	function the_yandex_map( $selector, $post_id = false, $data = null ) {
 
-		$post_id = function_exists( 'acf_get_valid_post_id' ) ? acf_get_valid_post_id( $post_id ) : (int) $post_id;
+		$post_id = function_exists( 'acf_get_valid_post_id' ) ? acf_get_valid_post_id( $post_id ) :  $post_id;
 
 		$value = ( $data !== null ) ? $data : get_field( $selector, $post_id, false );
 
@@ -49,16 +49,13 @@ if ( ! function_exists( 'the_yandex_map' ) ) {
 
 		$dir = plugin_dir_url( __FILE__ );
 		wp_register_script( 'yandex-map-api', '//api-maps.yandex.ru/2.1/?lang=' . get_bloginfo( 'language' ), array( 'jquery' ), null );
-		wp_register_script( 'yandex-map-frontend', "{$dir}js/yandex-map.min.js", array( 'yandex-map-api' ), ACF_YA_MAP_VERSION );
+		wp_register_script( 'yandex-map-frontend', "{$dir}js/yandex-map.js", array( 'yandex-map-api' ), ACF_YA_MAP_VERSION );
 		wp_enqueue_script( 'yandex-map-frontend' );
 
-		$map_id = uniqid( 'map-' );
+		$map_id = uniqid( 'map_' );
 
-		wp_localize_script( 'yandex-map-frontend', 'maps', array(
-			array(
-				'map_id' => $map_id,
-				'params' => $value
-			)
+		wp_localize_script( 'yandex-map-frontend', $map_id, array(
+			'params' => $value
 		) );
 
 		/**

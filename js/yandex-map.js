@@ -4,13 +4,16 @@
 
     ymaps.ready(function () {
 
-        if (maps !== undefined) {
+        var $maps = $('.yandex-map');
+        $maps.each(function (index, value) {
+            var $mapElement = $(value),
+                id = $mapElement.attr('id');
 
-            $(maps).each(function (index, value) {
+            if (id !== undefined && window[id] !== undefined) {
 
-                var $params = $.parseJSON(value['params']);
+                var $params = $.parseJSON(window[id]['params']);
 
-                var $map = new ymaps.Map(value['map_id'], {
+                var $map = new ymaps.Map(id, {
                     zoom: $params.zoom,
                     center: [$params.center_lat, $params.center_lng],
                     type: 'yandex#' + $params.type,
@@ -24,7 +27,6 @@
                 $map.controls.remove('geolocationControl');
 
                 $($params.marks).each(function (index, mark) {
-
                     var place_mark = null;
 
                     if (mark.type == 'Point') { // create placemark
@@ -51,14 +53,11 @@
 
                     }
 
-
                     $map.geoObjects.add(place_mark);
-
                 });
 
-            });
-
-        }
+            }
+        });
 
     });
 
