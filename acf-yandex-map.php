@@ -49,7 +49,7 @@ if ( ! function_exists( 'the_yandex_map' ) ) {
 
 		$dir = plugin_dir_url( __FILE__ );
 		wp_register_script( 'yandex-map-api', '//api-maps.yandex.ru/2.1/?lang=' . get_bloginfo( 'language' ), array( 'jquery' ), null );
-		wp_register_script( 'yandex-map-frontend', "{$dir}js/yandex-map.js", array( 'yandex-map-api' ), ACF_YA_MAP_VERSION );
+		wp_register_script( 'yandex-map-frontend', "{$dir}js/yandex-map.min.js", array( 'yandex-map-api' ), ACF_YA_MAP_VERSION );
 		wp_enqueue_script( 'yandex-map-frontend' );
 
 		$map_id = uniqid( 'map_' );
