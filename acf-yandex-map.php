@@ -41,7 +41,11 @@ if ( ! function_exists( 'the_yandex_map' ) ) {
 
 		$post_id = function_exists( 'acf_get_valid_post_id' ) ? acf_get_valid_post_id( $post_id ) :  $post_id;
 
-		$value = ( $data !== null ) ? $data : get_field( $selector, $post_id, false );
+		if( !empty(get_field( $selector, $post_id, false ))) {
+			$value = ( $data !== null ) ? $data : get_field( $selector, $post_id, false );
+		} else {
+			$value = ( $data !== null ) ? $data : get_sub_field( $selector, $post_id, false );
+		}
 
 		if ( ! $value ) {
 			return;
